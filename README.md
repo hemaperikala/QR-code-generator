@@ -17,16 +17,6 @@ To run this project, you need a modern web browser with JavaScript enabled.
 Installation
 Clone the repository or download the ZIP file.
 
-bash
-Copy code
-git clone https://github.com/yourusername/qr-code-generator.git
-Navigate to the project directory.
-
-bash
-Copy code
-cd qr-code-generator
-Open the index.html file in your web browser.
-
 Usage
 Enter the text or URL you want to encode in the input field.
 Click the "Generate QR Code" button.
