@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        #qrcode {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <input type="text" id="text" placeholder="Enter text or URL">
+        <button id="generate">Generate QR Code</button>
+        <div id="qrcode"></div>
+        <a id="download" download="QRCode.png">Download</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        document.getElementById('generate').addEventListener('click', function() {
+            let qrText = document.getElementById('text').value;
+            if (qrText) {
+                document.getElementById('qrcode').innerHTML = "";
+                let qrCode = new QRCode(document.getElementById('qrcode'), {
+                    text: qrText,
+                    width: 128,
+                    height: 128,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff"
+                });
+                setTimeout(() => {
+                    let qrCanvas = document.querySelector('#qrcode canvas');
+                    let qrImage = qrCanvas.toDataURL("image/png");
+                    document.getElementById('download').href = qrImage;
+                }, 500);
+            } else {
+                alert("Please enter text or URL");
+            }
+        });
+    </script>
+</body>
+</html>
