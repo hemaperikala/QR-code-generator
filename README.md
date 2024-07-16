@@ -35,7 +35,7 @@ Here is an example of what the QR Code Generator looks like:
 
 
 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License 
 
 Acknowledgements
 QRCode.js - A JavaScript library to generate QR codes
